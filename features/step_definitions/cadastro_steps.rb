@@ -17,43 +17,9 @@ Quando('submeto o seguinte formnulário de cadastro:') do |table|
     click_button "Cadastrar"
 end                                                                            
                                                                                  
-Então('sou redirecionado para o dashboard') do                 #espero que na pagina de cadastro tenha
+Então('sou redirecionado para o Dashboard') do                 #espero que na pagina de cadastro tenha
     expect(page).to have_css ".dashboard"                      #o elemento que gante que fui pra área logada
-end            
-
-
-#step2  
-Quando('submeto o meu cadastro sem o nome') do
-    find("#email").set "tatamanduca2@gmail.com"      
-    find("#password").set "Fubazinho"
-
-    click_button "Cadastrar"
-end
-
-#step3
-Quando('submeto o meu cadastro sem o email') do
-    find("#fullName").set "Tamires Manduca"
-    find("#password").set "Fubazinho"
-
-    click_button "Cadastrar"
-end
-
-#step4
-Quando('submeto com email incorreto') do                                
-    find("#fullName").set "Tamires Manduca"
-    find("#email").set "tatamanduca2*gmail.com"
-    find("#password").set "Fubazinho"
-
-    click_button "Cadastrar"
-end 
-
-#step5
-Quando('submeto o meu cadastro sem a senha') do                                
-    find("#fullName").set "Tamires Manduca"
-    find("#email").set "tatamanduca2@gmail.com"
-
-    click_button "Cadastrar"
-end                                                                            
+end                                                                                      
                                                                                  
 Então('vejo a mensagem de alerta: {string}') do |expect_alert|
     alert = find(".alert-dark")

@@ -1,6 +1,6 @@
 require 'mongo'                                                           #para importar a biblioteca do mongo
    
-# Mongo::Logger.logger = Logger.new("./Logs Mongo/mongo.log")
+Mongo::Logger.logger = Logger.new("./logs/mongo.log")
 
 class MongoDB
 #método    

@@ -13,33 +13,19 @@ Funcionalidade: Cadastro
         Quando submeto o seguinte formnulário de cadastro:
         | nome            | email                  | senha     |
         | Tamires Manduca | tatamanduca2@gmail.com | Fubazinho |
-        Então sou redirecionado para o dashboard
+        Então sou redirecionado para o Dashboard
 
-    @tentativa_cadastro
-    Cenário: Submeter cadastro sem o nome
-
-        Dado que acesso a pagina de cadastro
-        Quando submeto o meu cadastro sem o nome
-        Então vejo a mensagem de alerta: "Oops. Informe seu nome completo!"
-
-    @tentativa_cadastro
-    Cenário: Submeter cadastro sem o email
+    Cenário: Tentativa de cadastro
 
         Dado que acesso a pagina de cadastro
-        Quando submeto o meu cadastro sem o email
-        Então vejo a mensagem de alerta: "Oops. Informe um email válido!"
+        Quando submeto o seguinte formnulário de cadastro:
+            | nome       | email       | senha       |
+            |<nome_input>|<email_input>|<senha_input>|
+        Então vejo a mensagem de alerta: "<mensagem_output>"
 
-    @tentativa_cadastro
-    Cenário: Submeter cadastro com o email incorreto
-
-        Dado que acesso a pagina de cadastro
-        Quando submeto com email incorreto
-        Então vejo a mensagem de alerta: "Oops. Informe um email válido!"
-
-    @tentativa_cadastro
-    Cenário: Submeter cadastro sem a senha
-
-        Dado que acesso a pagina de cadastro
-        Quando submeto o meu cadastro sem a senha
-        Então vejo a mensagem de alerta: "Oops. Informe sua senha secreta!"
-
+        Exemplos:
+        |    nome_input    |     email_input        |  senha_input  |         mensagem_output           |
+        |                  | tatamanduca2@gmail.com |   Fubazinho   |  Oops. Informe seu nome completo! |
+        | Tamires Manduca  |                        |   Fubazinho   |  Oops. Informe um email válido!   |
+        | Tamires Manduca  | tatamanduca2*gmail.com |   Fubazinho   |  Oops. Informe um email válido!   |
+        | Tamires Manduca  | tatamanduca2@gmail.com |               |  Oops. Informe sua senha secreta! |
