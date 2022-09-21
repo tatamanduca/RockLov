@@ -1,11 +1,8 @@
 
 Dado('que acesso a página principal') do
-  visit "http://rocklov-web:3000/"
+  @login_page.visit_page
 end
   
 Quando('submeto minhas credenciais {string} e {string}') do |email, password|
-  find("input[placeholder='Seu e-email").set email
-  find("input[type=password]").set password
-
-  click_button "Entrar"
+  @login_page.with(email, password)
 end
